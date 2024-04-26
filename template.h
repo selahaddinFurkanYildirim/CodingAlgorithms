@@ -7,43 +7,83 @@
 #define min(a,b) ((a)<(b)?(a):(b))
 #define abs(a) ((a)<0?(0-(a)):(a))
 
-#define debug(a) _Generic((a), float:debugF,char:debugC,char*: debugS, int: debugD,int*:debugDX,float*:debugFX,char**:debugSX)(#a,a,'\n',sizeof(a))
+#ifdef __cplusplus
+#define debug(a) Debug(#a,a,'\n',sizeof(a))
+void Debug(char* n,int d,char E,int size){
+  printf("%s : %d%c",n,d,E);
+}
+void Debug(char* n,float f,char E,int size){
+  printf("%s : %f%c",n,f,E);
+}
+void Debug(char* n,char c,char E,int size){
+  printf("%s : %c%c",n,c,E);
+}
+void Debug(char* n,char *s,char E,int size){
+  printf("%s : %s%c",n,s,E);
+}
+void Debug(char* n,int *s,char E,int size){
+  printf("%s : {",n);
+  for(int i=0;i<(int)(size/sizeof(int))-1;i++){
+    printf("%d,",s[i]);
+  }
+  printf("%d}",s[(int)(size/sizeof(int))-1]);
+  printf("%c",E);
+}
+void Debug(char* n,float *s,char E,int size){
+  printf("%s : {",n);
+  for(int i=0;i<(int)(size/sizeof(float))-1;i++){
+    printf("%f,",s[i]);
+  }
+  printf("%f}",s[(int)(size/sizeof(float))-1]);
+  printf("%c",E);
+}
+void Debug(char* n,char *s[],char E,int size){
+  printf("%s : {",n);
+  for(int i=0;i<(int)(size/sizeof(char*))-1;i++){
+    printf("\"%s\",",s[i]);
+  }
+  printf("\"%s\"}",s[(int)(size/sizeof(char*))-1]);
+  printf("%c",E);
+}
+#else
+#define debug(a) _Generic((a), double:debugF,double*:debugFX, float:debugF,char:debugC,char*: debugS, int: debugD,int*:debugDX,float*:debugFX,char**:debugSX)(#a,a,'\n',sizeof(a))
 void debugD(char* n,int d,char end,int size){
-	printf("%s:%d%c",n,d,end);
+  printf("%s : %d%c",n,d,end);
 }
 void debugF(char* n,float f,char end,int size){
-	printf("%s:%f%c",n,f,end);
+  printf("%s : %f%c",n,f,end);
 }
 void debugC(char* n,char c,char end,int size){
-	printf("%s:%c%c",n,c,end);
+  printf("%s : %c%c",n,c,end);
 }
 void debugS(char* n,char *s,char end,int size){
-	printf("%s:%s%c",n,s,end);
+  printf("%s : %s%c",n,s,end);
 }
 void debugDX(char* n,int *s,char end,int size){
-	printf("%s:{",n);
-	for(int i=0;i<(int)(size/sizeof(int))-1;i++){
-		printf("%d,",s[i]);
-	}
-	printf("%d}",s[(int)(size/sizeof(int))-1]);
-	printf("%c",end);
+  printf("%s : {",n);
+  for(int i=0;i<(int)(size/sizeof(int))-1;i++){
+    printf("%d,",s[i]);
+  }
+  printf("%d}",s[(int)(size/sizeof(int))-1]);
+  printf("%c",end);
 }
 void debugFX(char* n,float *s,char end,int size){
-	printf("%s:{",n);
-	for(int i=0;i<(int)(size/sizeof(float))-1;i++){
-		printf("%f,",s[i]);
-	}
-	printf("%f}",s[(int)(size/sizeof(float))-1]);
-	printf("%c",end);
+  printf("%s : {",n);
+  for(int i=0;i<(int)(size/sizeof(float))-1;i++){
+    printf("%f,",s[i]);
+  }
+  printf("%f}",s[(int)(size/sizeof(float))-1]);
+  printf("%c",end);
 }
 void debugSX(char* n,char *s[],char end,int size){
-	printf("%s:{",n);
-	for(int i=0;i<(int)(size/sizeof(char*))-1;i++){
-		printf("\"%s\",",s[i]);
-	}
-	printf("\"%s\"}",s[(int)(size/sizeof(char*))-1]);
-	printf("%c",end);
+  printf("%s : {",n);
+  for(int i=0;i<(int)(size/sizeof(char*))-1;i++){
+    printf("\"%s\",",s[i]);
+  }
+  printf("\"%s\"}",s[(int)(size/sizeof(char*))-1]);
+  printf("%c",end);
 }
+#endif
 
 
 // int main() {
