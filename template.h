@@ -1,4 +1,10 @@
 #include <stdio.h>
+
+#define max(a,b) ((a)<(b)?(b):(a))
+#define min(a,b) ((a)<(b)?(a):(b))
+#define abs(a) ((a)<0?(0-(a)):(a))
+
+
 #define debug(a) _Generic((a), float:debugF,char:debugC,char*: debugS, int: debugD,int*:debugDX,float*:debugFX,char**:debugSX)(#a,a,'\0',sizeof(a))
 void debugD(char* n,int d,char end,int){
 	printf("%s:%d%c",n,d,end);
