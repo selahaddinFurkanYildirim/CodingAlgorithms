@@ -7,18 +7,17 @@
 #define min(a,b) ((a)<(b)?(a):(b))
 #define abs(a) ((a)<0?(0-(a)):(a))
 
-
-#define debug(a) _Generic((a), float:debugF,char:debugC,char*: debugS, int: debugD,int*:debugDX,float*:debugFX,char**:debugSX)(#a,a,'\0',sizeof(a))
-void debugD(char* n,int d,char end,int){
+#define debug(a) _Generic((a), float:debugF,char:debugC,char*: debugS, int: debugD,int*:debugDX,float*:debugFX,char**:debugSX)(#a,a,'\n',sizeof(a))
+void debugD(char* n,int d,char end,int size){
 	printf("%s:%d%c",n,d,end);
 }
-void debugF(char* n,float f,char end,int){
+void debugF(char* n,float f,char end,int size){
 	printf("%s:%f%c",n,f,end);
 }
-void debugC(char* n,char c,char end,int){
+void debugC(char* n,char c,char end,int size){
 	printf("%s:%c%c",n,c,end);
 }
-void debugS(char* n,char *s,char end,int){
+void debugS(char* n,char *s,char end,int size){
 	printf("%s:%s%c",n,s,end);
 }
 void debugDX(char* n,int *s,char end,int size){
