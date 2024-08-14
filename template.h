@@ -2,6 +2,8 @@
 #include <string.h>
 #include <math.h>
 #include <stdlib.h>
+typedef long long ll;
+#define int ll
 
 #define max(a,b) ((a)<(b)?(b):(a))
 #define min(a,b) ((a)<(b)?(a):(b))
