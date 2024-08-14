@@ -11,6 +11,8 @@ typedef long long ll;
 
 #ifdef __cplusplus
 #define debug(a) Debug(#a,a,'\n',sizeof(a))
+#include <bits/stdc++.h>
+using namespace std;
 void Debug(string n,int d,char E,int size){
   printf("%s : %lld%c",n.c_str(),d,E);
 }
