@@ -98,21 +98,20 @@ void debugSX(char* n,char *s[],char end,int size){
 #endif
 
 
-// int main() {
-//     int intValue = 42;
-//     int intValues[]={45,15,5};
-//     char charValue = 'A';
-//     float floatValue = 3.14;
-//     float floatValues[] = {3.14,1.45,5.5};
-//     char* stringValue = "Hello, World!";
-//     char* stringValues[] = {"Hello, World!","mynameisblabla"};
-
-//     debug(intValue);
-//     debug(intValues);
-//     debug(charValue);
-//     debug(floatValue);
-//     debug(floatValues);
-//     debug(stringValue);
-//     debug(stringValues);
+// signed main(signed argc,char *argv[]) {
+//     ios::sync_with_stdio(false);
+//     cin.tie(NULL);
+// #ifdef local
+//     auto lt=time(0);
+//     string TIME=string(__DATE__)+string(__TIME__);
+//     TIME.erase(remove_if(TIME.begin(),TIME.end(),[](char c){return !isdigit((unsigned char)c);}),TIME.end());
+//     srand((unsigned)stoul(TIME));
+//     cout<<__FILE__<<" "<<(argc>0?string(argv[0]).substr(string(argv[0]).rfind('/')+1,string(argv[0]).size()-string(argv[0]).rfind('/')-1):"ExecName Parametresi Bulunamadi")<<endl;
+//     cout<<__DATE__<<" "<<__TIME__<<endl;
+//     cout<<ctime(&lt);
+//     cout<<"KEY:"<<rand()<<endl;
+//     cout<<"_____________________"<<endl;
+//     if(!freopen("input.txt","r",stdin)) cerr<<"input.txt!";
+// #endif
 //     return 0;
 // }
